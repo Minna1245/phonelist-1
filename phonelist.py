@@ -11,7 +11,8 @@ print("""Hello and welcome to the phone list, available commands:
 add - add a phone number
 delete - delete a contact
 list - list all phone numbers
-quit - quit the program""")
+quit - quit the program
+save - saves the list""")
 
 
 def read_phonelist(C):
@@ -50,5 +51,8 @@ while True: ## REPL - Read Execute Program Loop
     elif cmd == "QUIT":
         save_phonelist(conn)
         exit()
+    elif cmd == "SAVE":
+        save_phonelist(conn)
+        print("List saved!")
     else:
         print(f"Unknown command: {cmd}")
