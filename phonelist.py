@@ -7,6 +7,13 @@ conn = psycopg2.connect(
     user="phone",
     password="abc123")
 
+print("""Hello and welcome to the phone list, available commands:
+add - add a phone number
+delete - delete a contact
+list - list all phone numbers
+quit - quit the program""")
+
+
 def read_phonelist(C):
     cur = C.cursor()
     cur.execute("SELECT * FROM phonelist;")
@@ -30,7 +37,7 @@ def save_phonelist(C):
     cur.close()
 
 while True: ## REPL - Read Execute Program Loop
-    cmd = input("Command: ")
+    cmd = input("Command: ").strip().upper()
     if cmd == "LIST":
         print(read_phonelist(conn))
     elif cmd == "ADD":
